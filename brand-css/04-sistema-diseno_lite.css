@@ -1,0 +1,306 @@
+/* Quirón · CSS para GHL (versión ligera, sin fuentes embebidas).
+   Carga las fuentes en el <head> de GHL o arriba del CSS:
+   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=Spectral:ital,wght@0,400;500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+   Nota: en estos builds las familias se llaman DMS=DM Sans, SPR/SPI=Spectral, JBM=JetBrains Mono. */
+
+/* ============================================================
+   QUIRÓN — Sistema de Diseño
+   Fuentes y logos incrustados como data URI
+   ============================================================ */
+
+
+
+
+
+#quiron{
+  /* ——— Núcleo de marca (Manual) ——— */
+  --tierra:#19493d;      /* TIERRA · Raíz — primario */
+  --aire:#efff3d;        /* AIRE · Soplo — acento vivo */
+  --eter:#b5a2e6;        /* ÉTER · Astro — lavanda celeste (nuevo) */
+  --amatista:#6e4595;    /* alquímico */
+  --gris:#e8e8e8;        /* neutro del manual */
+
+  /* ——— Escala TIERRA (verde) ——— */
+  --tierra-900:#0b2620; --tierra-800:#123729; --tierra-700:#19493d;
+  --tierra-600:#245c4d; --tierra-500:#35705e; --tierra-400:#5c8f80;
+  --tierra-300:#8ab3a6; --tierra-200:#bdd7cd; --tierra-100:#e1ede8; --tierra-50:#f0f6f3;
+
+  /* acentos derivados */
+  --aire-deep:#dff02a; --aire-soft:#f5ff7a;
+  --eter-deep:#9a83dd; --eter-soft:#d5cbf1;
+  --amatista-deep:#563577; --amatista-soft:#9670b7;
+
+  /* ——— Fuerzas sin color en el manual (extensión propuesta) ——— */
+  --agua:#2c6e7f;   /* AGUA · Origen — marino */
+  --fuego:#ffd400;  /* FUEGO · Llama — sol, la luz más ardiente */
+
+  /* ——— Neutros elegidos (sesgo verde cálido) ——— */
+  --tinta:#10221c;        /* casi-negro con verde */
+  --papel:#f4f1e8;        /* hueso cálido */
+  --papel-2:#efeadd;      /* papel hundido */
+  --piedra-700:#3a463f; --piedra-500:#6d7a71; --piedra-300:#a9b2aa; --piedra-100:#dfe2db;
+  --linea:#d9d6c8;        /* borde sobre papel */
+  --linea-night:#2a4f44;  /* borde sobre noche */
+
+  /* ——— Semánticos (extensión, terrosos) ——— */
+  --exito:#2f7d5f; --atencion:#bd8a2c; --alto:#a23b2c; --info:#6e4595;
+
+  /* ——— Tipografía ——— */
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,"Roboto Mono",monospace;
+
+  /* ——— Espaciado (base 4px) ——— */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
+  --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px; --sp-20:80px; --sp-24:96px; --sp-32:128px;
+
+  /* ——— Radios ——— */
+  --r-xs:6px; --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
+
+  /* ——— Elevación (sombra verde) ——— */
+  --e-1:0 1px 2px rgba(16,34,28,.06),0 1px 3px rgba(16,34,28,.08);
+  --e-2:0 4px 10px rgba(16,34,28,.08),0 2px 4px rgba(16,34,28,.06);
+  --e-3:0 18px 40px rgba(16,34,28,.14),0 6px 14px rgba(16,34,28,.08);
+
+  /* ——— Movimiento ——— */
+  --t-1:160ms; --t-2:240ms; --t-3:360ms;
+  --ease:cubic-bezier(.2,.7,.2,1);
+
+  --measure:66ch;
+  --maxw:1160px;
+
+  font-family:var(--sans);
+  color:var(--tinta);
+  background:var(--papel);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-weight:400;
+}
+
+#quiron *{box-sizing:border-box}
+#quiron img{max-width:100%;display:block}
+#quiron ::selection{background:var(--aire);color:var(--tierra)}
+
+/* ————— Layout ————— */
+#quiron .band{padding:var(--sp-24) var(--sp-6);position:relative;overflow:hidden}
+#quiron .band--paper{background:var(--papel)}
+#quiron .band--sink{background:var(--papel-2)}
+#quiron .band--night{background:var(--tierra);color:#f3f6f2}
+#quiron .band--night2{background:var(--tierra-900);color:#eef4f0}
+#quiron .wrap{max-width:var(--maxw);margin:0 auto}
+#quiron .prose{max-width:var(--measure)}
+
+/* grano sobre la noche */
+#quiron .band--night::before,#quiron .band--night2::before,#quiron .hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ————— Tipografía base ————— */
+#quiron h1,#quiron h2,#quiron h3,#quiron h4{text-wrap:balance;line-height:1.12;margin:0;font-weight:500;letter-spacing:-.01em}
+#quiron p{margin:0}
+#quiron .eyebrow{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;font-weight:500}
+#quiron .display{font-weight:300;font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.025em;line-height:1.02}
+#quiron .h-sec{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:300;letter-spacing:-.02em}
+#quiron .h-sub{font-size:1.3rem;font-weight:500}
+#quiron .lead{font-size:1.24rem;line-height:1.55;font-weight:300}
+#quiron .small{font-size:.86rem}
+#quiron .mono{font-family:var(--mono)}
+#quiron .serif{font-family:var(--serif)}
+#quiron .muted{color:var(--piedra-500)}
+#quiron .on-night .muted{color:#9fc0b4}
+
+/* voz mítica */
+#quiron .voz{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.4;font-weight:400}
+
+/* ————— Kicker de sección (numeral romano) ————— */
+#quiron .kicker{display:flex;align-items:baseline;gap:var(--sp-4);margin-bottom:var(--sp-6)}
+#quiron .kicker .num{font-family:var(--serif);font-style:italic;font-size:1.5rem;opacity:.6}
+#quiron .kicker .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
+#quiron .rule{height:1px;background:var(--linea);border:0;margin:0}
+#quiron .band--night .rule,#quiron .band--night2 .rule{background:var(--linea-night)}
+
+/* ————— HERO ————— */
+#quiron .hero{background:var(--tierra);color:#f3f6f2;min-height:92vh;display:flex;flex-direction:column;justify-content:space-between;padding:var(--sp-8) var(--sp-6) var(--sp-10)}
+#quiron .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#quiron .hero .wrap{position:relative;z-index:2;width:100%}
+#quiron .hero-top{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);flex-wrap:wrap}
+#quiron .hero-mark{width:118px}
+#quiron .hero-mid{padding:var(--sp-16) 0 var(--sp-8)}
+#quiron .hero .display .amp{color:var(--aire)}
+#quiron .hero-firma{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--eter);max-width:22ch;line-height:1.35;margin-top:var(--sp-6)}
+#quiron .hero-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--sp-6);flex-wrap:wrap;border-top:1px solid var(--linea-night);padding-top:var(--sp-5)}
+#quiron .hero-meta{display:flex;gap:var(--sp-8);flex-wrap:wrap}
+#quiron .hero-meta div .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8fb3a6}
+#quiron .hero-meta div .v{font-size:.95rem;margin-top:2px}
+#quiron .star{color:var(--aire)}
+
+/* ————— Grids util ————— */
+#quiron .cols{display:grid;gap:var(--sp-6)}
+@media(min-width:720px){#quiron .c2{grid-template-columns:1fr 1fr}#quiron .c3{grid-template-columns:repeat(3,1fr)}#quiron .c4{grid-template-columns:repeat(4,1fr)}}
+#quiron .split{display:grid;gap:var(--sp-10)}
+@media(min-width:900px){#quiron .split{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:var(--sp-16)}#quiron .split.wide{grid-template-columns:minmax(0,260px) minmax(0,1fr)}}
+
+/* ————— Fuerzas (color) ————— */
+#quiron .fuerzas{display:grid;gap:var(--sp-4)}
+@media(min-width:680px){#quiron .fuerzas{grid-template-columns:repeat(5,1fr)}}
+#quiron .fuerza{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--linea-night);background:var(--tierra-800);min-height:230px;display:flex;flex-direction:column}
+#quiron .fuerza .cap{height:96px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;position:relative}
+#quiron .fuerza .body{padding:var(--sp-4);display:flex;flex-direction:column;gap:6px;flex:1}
+#quiron .fuerza .name{font-weight:500;font-size:1.02rem}
+#quiron .fuerza .ess{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a7c6ba;line-height:1.3}
+#quiron .fuerza .hex{font-family:var(--mono);font-size:.72rem;color:#8fb3a6;margin-top:auto}
+#quiron .tagx{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:2px 6px;border-radius:var(--r-pill);border:1px solid currentColor;align-self:flex-start;opacity:.8}
+
+/* ————— Swatches ————— */
+#quiron .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--sp-3)}
+#quiron .sw{border:1px solid var(--linea);border-radius:var(--r-md);overflow:hidden;background:#fff;cursor:pointer;transition:transform var(--t-1) var(--ease),box-shadow var(--t-1) var(--ease)}
+#quiron .sw:hover{transform:translateY(-3px);box-shadow:var(--e-2)}
+#quiron .sw .chip{height:74px;position:relative}
+#quiron .sw .meta{padding:8px 10px 10px}
+#quiron .sw .nm{font-size:.82rem;font-weight:500}
+#quiron .sw .hx{font-family:var(--mono);font-size:.72rem;color:var(--piedra-500);text-transform:uppercase}
+#quiron .sw .role{font-size:.7rem;color:var(--piedra-500);margin-top:1px}
+#quiron .sw .copied{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(16,34,28,.82);color:var(--aire);font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;opacity:0;transition:opacity var(--t-1)}
+#quiron .sw.is-copied .copied{opacity:1}
+
+/* escala */
+#quiron .scale-row{display:flex;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--linea)}
+#quiron .scale-row .st{flex:1;height:64px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-family:var(--mono);font-size:.62rem;cursor:pointer}
+
+/* ————— Logo aplicaciones ————— */
+#quiron .logo-grid{display:grid;gap:var(--sp-3);grid-template-columns:repeat(2,1fr)}
+@media(min-width:720px){#quiron .logo-grid{grid-template-columns:repeat(3,1fr)}}
+#quiron .logo-cell{aspect-ratio:4/3;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;border:1px solid var(--linea);position:relative;overflow:hidden}
+#quiron .logo-cell img{width:52%}
+#quiron .logo-cell .tag{position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;opacity:.7}
+#quiron .bg-white{background:#fff}
+#quiron .bg-black{background:#000;color:#fff}
+#quiron .bg-tierra{background:var(--tierra);color:#fff}
+#quiron .bg-gris{background:var(--gris)}
+#quiron .bg-lila{background:linear-gradient(120deg,var(--amatista),var(--tierra-600))}
+
+/* zona respeto / dont */
+#quiron .dont{border:1px solid var(--linea);border-radius:var(--r-md);padding:var(--sp-4);background:#fff;display:flex;gap:var(--sp-3);align-items:flex-start}
+#quiron .dont .m{font-family:var(--mono);font-weight:700;font-size:.9rem;line-height:1;margin-top:2px}
+#quiron .dont.no .m{color:var(--alto)} #quiron .dont.yes .m{color:var(--exito)}
+
+/* ————— Tipografía specimen ————— */
+#quiron .spec{border-top:1px solid var(--linea);padding:var(--sp-5) 0;display:grid;gap:6px;grid-template-columns:1fr;align-items:baseline}
+@media(min-width:720px){#quiron .spec{grid-template-columns:150px 1fr}}
+#quiron .spec .info{font-family:var(--mono);font-size:.72rem;color:var(--piedra-500);text-transform:uppercase;letter-spacing:.08em}
+
+/* ————— Tokens tabla ————— */
+#quiron .tok{width:100%;border-collapse:collapse;font-size:.9rem}
+#quiron .tok td{padding:var(--sp-3) var(--sp-4);border-bottom:1px solid var(--linea);vertical-align:middle}
+#quiron .tok .tk{font-family:var(--mono);font-size:.78rem;color:var(--amatista-deep)}
+#quiron .tok .vv{font-family:var(--mono);font-size:.78rem;color:var(--piedra-500)}
+#quiron .demo-bar{background:var(--tierra);height:16px;border-radius:4px}
+#quiron .radbox{background:var(--tierra-100);border:1px solid var(--tierra-300);width:56px;height:40px}
+#quiron .elbox{background:#fff;width:80px;height:44px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.66rem;color:var(--piedra-500)}
+
+/* ————— Componentes ————— */
+#quiron .comp{background:#fff;border:1px solid var(--linea);border-radius:var(--r-lg);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4)}
+#quiron .comp .ct{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--piedra-500)}
+#quiron .row{display:flex;gap:var(--sp-3);flex-wrap:wrap;align-items:center}
+
+/* botones */
+#quiron .btn{font-family:var(--sans);font-weight:500;font-size:.95rem;border-radius:var(--r-pill);padding:12px 22px;border:1px solid transparent;cursor:pointer;transition:all var(--t-1) var(--ease);display:inline-flex;align-items:center;gap:8px;line-height:1}
+#quiron .btn:focus-visible{outline:2px solid var(--amatista);outline-offset:2px}
+#quiron .btn-primary{background:var(--tierra);color:#fff}
+#quiron .btn-primary:hover{background:var(--tierra-600)}
+#quiron .btn-accent{background:var(--aire);color:var(--tierra)}
+#quiron .btn-accent:hover{background:var(--aire-deep)}
+#quiron .btn-ghost{background:transparent;color:var(--tierra);border-color:var(--tierra-300)}
+#quiron .btn-ghost:hover{background:var(--tierra-50)}
+#quiron .btn-link{background:transparent;color:var(--tierra);padding:12px 4px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--eter)}
+#quiron .btn[disabled]{opacity:.4;cursor:not-allowed}
+
+/* inputs */
+#quiron .field{display:flex;flex-direction:column;gap:6px;max-width:320px}
+#quiron .field label{font-size:.8rem;font-weight:500}
+#quiron .inp{font-family:var(--sans);font-size:.95rem;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--linea);background:#fff;color:var(--tinta);transition:border var(--t-1),box-shadow var(--t-1)}
+#quiron .inp::placeholder{color:var(--piedra-300)}
+#quiron .inp:focus{outline:none;border-color:var(--tierra);box-shadow:0 0 0 3px rgba(25,73,61,.14)}
+#quiron .inp.err{border-color:var(--alto);box-shadow:0 0 0 3px rgba(162,59,44,.12)}
+#quiron .hint{font-size:.74rem;color:var(--piedra-500)}
+#quiron .hint.err{color:var(--alto)}
+
+/* chips fuerza */
+#quiron .chip-f{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;padding:5px 12px;border-radius:var(--r-pill);border:1px solid}
+#quiron .chip-f .dot{width:8px;height:8px;border-radius:50%}
+
+/* mensajes */
+#quiron .msg{display:flex;gap:10px;padding:12px 14px;border-radius:var(--r-sm);font-size:.88rem;border:1px solid;align-items:flex-start}
+#quiron .msg .i{font-family:var(--mono);font-weight:700;line-height:1.2}
+#quiron .msg-exito{background:rgba(47,125,95,.08);border-color:rgba(47,125,95,.35);color:#1f5b43}
+#quiron .msg-atencion{background:rgba(189,138,44,.1);border-color:rgba(189,138,44,.4);color:#7c5a15}
+#quiron .msg-alto{background:rgba(162,59,44,.08);border-color:rgba(162,59,44,.35);color:#872f22}
+#quiron .msg-info{background:rgba(110,69,149,.08);border-color:rgba(110,69,149,.32);color:#54357a}
+
+/* card producto */
+#quiron .pcard{background:#fff;border:1px solid var(--linea);border-radius:var(--r-lg);overflow:hidden;max-width:300px;box-shadow:var(--e-1)}
+#quiron .pcard .top{background:linear-gradient(150deg,var(--tierra),var(--tierra-900));height:140px;position:relative;display:flex;align-items:flex-end;padding:var(--sp-4)}
+#quiron .pcard .top .fz{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--aire)}
+#quiron .pcard .top .sp{position:absolute;top:14px;right:16px;color:var(--eter);font-size:1.1rem}
+#quiron .pcard .pb{padding:var(--sp-4);display:flex;flex-direction:column;gap:6px}
+#quiron .pcard .pn{font-weight:500;font-size:1.05rem}
+#quiron .pcard .pd{font-family:var(--serif);font-style:italic;font-size:.88rem;color:var(--piedra-500)}
+
+/* toggle */
+#quiron .tg{width:46px;height:26px;border-radius:var(--r-pill);background:var(--piedra-300);position:relative;cursor:pointer;transition:background var(--t-2)}
+#quiron .tg::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform var(--t-2) var(--ease)}
+#quiron .tg.on{background:var(--tierra)}
+#quiron .tg.on::after{transform:translateX(20px)}
+
+/* léxico */
+#quiron .lex{display:grid;gap:var(--sp-6)}
+@media(min-width:720px){#quiron .lex{grid-template-columns:1fr 1fr}}
+#quiron .lexcard{border-radius:var(--r-lg);padding:var(--sp-6);border:1px solid}
+#quiron .lex-yes{background:var(--tierra-50);border-color:var(--tierra-300)}
+#quiron .lex-no{background:rgba(162,59,44,.05);border-color:rgba(162,59,44,.25)}
+#quiron .words{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--sp-3)}
+#quiron .word{font-family:var(--serif);font-style:italic;font-size:1rem;padding:4px 12px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--linea)}
+#quiron .word.no{text-decoration:line-through;color:var(--alto);opacity:.75}
+
+/* principios */
+#quiron .princ{display:grid;gap:1px;background:var(--linea-night);border:1px solid var(--linea-night);border-radius:var(--r-lg);overflow:hidden}
+@media(min-width:640px){#quiron .princ{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){#quiron .princ{grid-template-columns:repeat(3,1fr)}}
+#quiron .princ .p{background:var(--tierra);padding:var(--sp-6);display:flex;flex-direction:column;gap:8px;min-height:150px}
+#quiron .princ .p .n{font-family:var(--serif);font-style:italic;color:var(--aire);font-size:1.1rem}
+#quiron .princ .p .t{font-weight:500;font-size:1.08rem}
+#quiron .princ .p .d{font-size:.9rem;color:#a7c6ba;line-height:1.45}
+
+/* nav rail */
+#quiron .rail{position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:50;display:none;flex-direction:column;gap:14px}
+@media(min-width:1120px){#quiron .rail{display:flex}}
+#quiron .rail a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--piedra-500);font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;transition:color var(--t-1)}
+#quiron .rail a .d{width:7px;height:7px;border-radius:50%;background:var(--piedra-300);transition:all var(--t-1)}
+#quiron .rail a:hover{color:var(--tierra)}
+#quiron .rail a:hover .d{background:var(--tierra);transform:scale(1.3)}
+#quiron .rail a .n{opacity:0;transform:translateX(-4px);transition:all var(--t-1)}
+#quiron .rail a:hover .n{opacity:1;transform:translateX(0)}
+
+/* footer */
+#quiron .foot{padding:var(--sp-16) var(--sp-6) var(--sp-12)}
+#quiron .foot .eph{font-family:var(--mono);font-size:.72rem;color:#8fb3a6;line-height:1.9;background:var(--tierra-900);border:1px solid var(--linea-night);border-radius:var(--r-md);padding:var(--sp-4) var(--sp-5);display:inline-block}
+
+#quiron a.tlink{color:inherit}
+
+/* ————— Destello / iconografía ————— */
+#quiron .qmark{display:inline-block;fill:currentColor;vertical-align:middle;line-height:0}
+#quiron .icard{background:var(--tierra-800);border:1px solid var(--linea-night);border-radius:var(--r-md);padding:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-2);align-items:center;text-align:center;min-height:172px;justify-content:center}
+#quiron .icard .ic{height:82px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;color:var(--aire)}
+#quiron .icard .in{font-weight:500;font-size:.9rem}
+#quiron .icard .idesc{font-family:var(--serif);font-style:italic;font-size:.76rem;color:#9fc0b4}
+#quiron .maprow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--linea-night);font-size:.88rem}
+#quiron .maprow:last-child{border-bottom:0}
+#quiron .maprow .mk{color:#d3e2da}
+#quiron .maprow .mv{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--aire);white-space:nowrap}
+#quiron .maprow .mv.q{color:var(--eter)}
+
+@media(prefers-reduced-motion:reduce){
+  #quiron *{animation:none!important;transition:none!important}
+}

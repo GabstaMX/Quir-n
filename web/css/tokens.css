@@ -1,0 +1,16 @@
+/* QUIRÓN · Sistema de diseño — Design Tokens v1.0 */
+@font-face{font-family:"DM Sans";font-weight:300;src:url(../assets/fonts/DMSans-Light.ttf) format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../assets/fonts/DMSans-Regular.ttf) format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:500;src:url(../assets/fonts/DMSans-Medium.ttf) format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:700;src:url(../assets/fonts/DMSans-Bold.ttf) format("truetype")}
+
+#tienda{
+  --verde:#19493d;--verde-900:#0b2620;--verde-800:#123729;--verde-600:#245c4d;--verde-500:#35705e;--verde-300:#8ab3a6;--verde-100:#e1ede8;--verde-50:#f0f6f3;
+  --lima:#efff3d;--lima-deep:#dff02a;--lavanda:#b5a2e6;--amatista:#6e4595;--agua:#2c6e7f;--fuego:#ffd400;
+  --tinta:#10221c;--papel:#f4f1e8;--papel-2:#efeadd;--piedra-500:#6d7a71;--piedra-300:#a9b2aa;--linea:#d9d6c8;--linea-noche:#2a4f44;
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased;
+}

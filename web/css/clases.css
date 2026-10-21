@@ -1,0 +1,152 @@
+html,body{margin:0}
+/* ============================================================
+   QUIRÓN · Sistema de diseño (web)  ·  quiron.com.mx
+   Alcance: todo bajo .quiron-doc para no chocar con tu sitio.
+   Fuentes: DM Sans (texto), Spectral (voz/serif), JetBrains Mono (mono).
+   ============================================================ */
+.quiron-doc{
+  /* — Núcleo de marca — */
+  --tierra:#19493d; --tierra-900:#0b2620; --tierra-800:#123729; --tierra-700:#19493d;
+  --tierra-600:#245c4d; --tierra-500:#35705e; --tierra-400:#5c8f80; --tierra-300:#8ab3a6;
+  --tierra-200:#bdd7cd; --tierra-100:#e1ede8; --tierra-50:#f0f6f3;
+  --aire:#efff3d; --aire-deep:#dff02a; --eter:#b5a2e6; --eter-deep:#9a83dd;
+  --amatista:#6e4595;
+  --tinta:#10221c; --papel:#f4f1e8; --papel-2:#efeadd;
+  --piedra-700:#3a463f; --piedra-500:#6d7a71; --piedra-300:#a9b2aa; --linea:#d9d6c8;
+  --linea-night:#2a4f44;
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Spectral","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:"JetBrains Mono","SF Mono",ui-monospace,Menlo,monospace;
+  --measure:66ch; --maxw:720px;
+
+  font-family:var(--sans); color:var(--tinta); background:var(--papel);
+  line-height:1.62; font-weight:400; -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.quiron-doc *{box-sizing:border-box}
+.quiron-doc img{max-width:100%;display:block}
+.quiron-doc ::selection{background:var(--aire);color:var(--tierra)}
+
+/* ——— Layout ——— */
+.quiron-doc .band{padding:clamp(3rem,8vw,6rem) 1.25rem;position:relative;overflow:hidden}
+.quiron-doc .band--paper{background:var(--papel)}
+.quiron-doc .band--sink{background:var(--papel-2)}
+.quiron-doc .band--night{background:var(--tierra);color:#f3f6f2}
+.quiron-doc .wrap{max-width:var(--maxw);margin:0 auto}
+.quiron-doc .prose{max-width:var(--measure)}
+
+/* ——— Tipografía ——— */
+.quiron-doc h1,.quiron-doc h2,.quiron-doc h3{margin:0;font-weight:400;line-height:1.12;
+  text-wrap:balance;letter-spacing:-.01em}
+.quiron-doc p{margin:0 0 1.05em;text-wrap:pretty}
+.quiron-doc .eyebrow{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.24em;font-weight:500;color:var(--piedra-500)}
+.quiron-doc .display{font-weight:200;font-size:clamp(2.4rem,7vw,4rem);letter-spacing:-.03em;
+  line-height:1.02}
+.quiron-doc .h-sec{font-weight:300;font-size:clamp(1.7rem,4.2vw,2.6rem);letter-spacing:-.02em;
+  line-height:1.06}
+.quiron-doc .lead{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.5;color:var(--tierra-700)}
+.quiron-doc .voz{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4;color:var(--tierra-700)}
+.quiron-doc .serif{font-family:var(--serif)} .quiron-doc .mono{font-family:var(--mono)}
+.quiron-doc .muted{color:var(--piedra-500)}
+
+/* ——— Kicker (numeral romano + etiqueta) ——— */
+.quiron-doc .kicker{display:flex;align-items:baseline;gap:.85rem;margin-bottom:.9rem}
+.quiron-doc .kicker .num{font-family:var(--serif);font-style:italic;font-size:1.7rem;
+  color:var(--tierra-400);line-height:1}
+.quiron-doc .kicker .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--piedra-500)}
+.quiron-doc .rule{height:1px;background:var(--linea);border:0;margin:1.4rem 0}
+.quiron-doc .band--night .rule{background:var(--linea-night)}
+
+/* ——— Subtítulos dentro de clase ——— */
+.quiron-doc .h-sub{font-weight:500;font-size:1.16rem;color:var(--tierra-700);
+  margin:2.2rem 0 .6rem}
+.quiron-doc .h-sub::before{content:"";display:block;width:26px;height:3px;
+  background:var(--aire-deep);border-radius:3px;margin-bottom:.6rem}
+
+/* ——— Frase clave ——— */
+.quiron-doc .dicta{font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.4;color:var(--tierra-700);
+  margin:1.6rem 0;padding-left:1.1rem;border-left:3px solid var(--aire-deep)}
+.quiron-doc .dicta strong{font-weight:500;color:var(--tierra-800)}
+
+/* ——— Listas ——— */
+.quiron-doc ul{margin:.8rem 0 1.3rem;padding:0;list-style:none}
+.quiron-doc ul li{position:relative;padding-left:1.4rem;margin-bottom:.55rem}
+.quiron-doc ul li::before{content:"";position:absolute;left:.15rem;top:.62em;
+  width:6px;height:6px;border-radius:50%;background:var(--tierra-300)}
+.quiron-doc ul li strong{color:var(--tierra-700)}
+
+/* ——— HERO ——— */
+.quiron-doc .hero{background:var(--tierra);color:#f3f6f2;min-height:min(90vh,760px);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:clamp(1.5rem,4vw,2.5rem) 1.25rem clamp(2rem,5vw,3rem);position:relative;overflow:hidden}
+.quiron-doc .hero .wrap{position:relative;z-index:2;width:100%}
+.quiron-doc .hero-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.quiron-doc .hero-top .wm{height:1.7rem;width:auto}
+.quiron-doc .hero-top .is{height:3rem;width:auto}
+.quiron-doc .hero-mid{padding:clamp(2rem,7vw,4.5rem) 0 1rem}
+.quiron-doc .hero h1{color:#f6f8f4;max-width:16ch}
+.quiron-doc .hero h1 .g{color:var(--aire)}
+.quiron-doc .hero-sub{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.1rem,2.4vw,1.4rem);color:var(--eter);margin-top:1.2rem;max-width:34ch;line-height:1.45}
+.quiron-doc .hero-firma{font-family:var(--serif);font-style:italic;font-size:1.05rem;
+  color:#dfe9e3;line-height:1.3}
+.quiron-doc .hero-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+  border-top:1px solid var(--linea-night);padding-top:1rem;flex-wrap:wrap}
+.quiron-doc .hero-meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tierra-300);text-align:right;line-height:1.9}
+.quiron-doc .hero-meta .u{color:var(--aire)}
+.quiron-doc .hero .halo{position:absolute;right:-30%;top:-10%;width:80%;aspect-ratio:1;
+  border-radius:50%;background:radial-gradient(circle,rgba(181,162,230,.18),rgba(25,73,61,0) 62%);z-index:1}
+.quiron-doc .hero .bigmark{position:absolute;right:-6%;top:30%;width:60%;opacity:.06;z-index:1}
+
+/* ——— Índice ——— */
+.quiron-doc .toc-item{padding:1.1rem 0;border-top:1px solid var(--linea)}
+.quiron-doc .toc-item:last-child{border-bottom:1px solid var(--linea)}
+.quiron-doc .toc-item .r1{display:flex;align-items:baseline;gap:1rem}
+.quiron-doc .toc-item .pn{font-family:var(--serif);font-style:italic;font-size:1.4rem;
+  color:var(--tierra-400);line-height:1;min-width:2.2em}
+.quiron-doc .toc-item .pt{font-weight:500;font-size:1.15rem}
+.quiron-doc .toc-item .topics{font-family:var(--serif);font-style:italic;font-size:.92rem;
+  color:var(--piedra-500);line-height:1.55;margin:.5rem 0 0 calc(2.2em + 1rem)}
+
+/* ——— Clase (artículo) ——— */
+.quiron-doc .clase{max-width:var(--measure);margin:0 auto}
+.quiron-doc .clase + .clase{margin-top:clamp(3rem,7vw,5rem);
+  padding-top:clamp(3rem,7vw,5rem);border-top:1px solid var(--linea)}
+.quiron-doc .clase-sub{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:1.15rem;color:var(--tierra-500);margin:.2rem 0 1.6rem}
+
+/* ——— Nota de continuidad ——— */
+.quiron-doc .continua{display:flex;gap:.7rem;align-items:center;margin-top:2.6rem;
+  padding:.9rem 1.1rem;border:1px solid var(--linea);border-radius:12px;background:var(--papel-2)}
+.quiron-doc .continua .d{width:8px;height:8px;border-radius:50%;background:var(--aire-deep);flex:none}
+.quiron-doc .continua .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--piedra-500)}
+.quiron-doc .continua .t b{color:var(--tierra-700);font-weight:500}
+
+/* ——— Colofón / pie ——— */
+.quiron-doc .colo{text-align:center}
+.quiron-doc .colo .im{width:min(200px,50%);margin:0 auto 1.4rem;opacity:.95}
+.quiron-doc .colo .firma{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--eter)}
+.quiron-doc .colo .u{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--aire);margin-top:1.3rem}
+.quiron-doc .colo .reg{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tierra-300);margin-top:.4rem}
+
+@media (prefers-reduced-motion:reduce){.quiron-doc *{animation:none!important;transition:none!important}}
+
+
+/* ——— Barra de navegación del sitio (integración con la tienda) ——— */
+.quiron-doc .site-nav{position:sticky;top:0;z-index:60;background:rgba(244,241,232,.92);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.quiron-doc .site-nav .in{max-width:1080px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;gap:16px}
+.quiron-doc .site-nav .brand img{height:20px;width:auto;display:block}
+.quiron-doc .site-nav .cur{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--piedra-500)}
+.quiron-doc .site-nav .back{margin-left:auto;font-size:.85rem;font-weight:500;color:var(--tierra);text-decoration:none}
+.quiron-doc .site-nav .back:hover{color:var(--tierra-600)}

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quirón · Tienda</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="tienda">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <path id="qstar" d="M50 1 C52.5 34 66 47.5 99 50 C66 52.5 52.5 66 50 99 C47.5 66 34 52.5 1 50 C34 47.5 47.5 34 50 1 Z"/>
+    <path id="qmol" d="M96.94 58.59 C96.94 55.25 98.24 52.1 100.6 49.74 C100.83 49.51 100.95 49.2 100.95 48.9 C100.95 48.58 100.81 48.25 100.54 48.01 C100.06 47.59 99.31 47.71 98.85 48.16 C94.12 52.79 86.61 52.91 81.73 48.53 C81.73 48.53 81.73 48.53 81.73 48.53 C69.61 35.4 69.92 14.87 82.66 2.13 C82.89 1.9 83.01 1.6 83.01 1.29 C83.01 0.9 82.81 0.51 82.43 0.28 C81.95 -0.01 81.33 0.13 80.93 0.53 C74.61 6.81 66.23 10.28 57.31 10.28 C48.39 10.28 40.01 6.82 33.69 0.54 C33.24 0.09 32.49 -0.01 32.01 0.41 C31.74 0.64 31.61 0.97 31.61 1.29 C31.61 1.6 31.72 1.9 31.95 2.13 C44.61 14.79 45 35.14 33.12 48.28 C33.12 48.28 33.12 48.28 33.12 48.28 C28.97 52.02 23.65 54.07 18.02 54.07 C12.02 54.07 6.39 51.75 2.13 47.53 C1.67 47.08 0.93 46.97 0.44 47.4 C0.17 47.63 0.04 47.96 0.04 48.28 C0.04 48.58 0.15 48.89 0.38 49.11 C4.65 53.38 7 59.06 7 65.09 C7 71.12 4.65 76.8 0.38 81.07 C0.15 81.3 0.04 81.6 0.04 81.9 C0.04 82.22 0.17 82.55 0.44 82.78 C0.93 83.21 1.67 83.1 2.13 82.65 C10.94 73.92 25.22 73.95 34 82.73 C34.23 82.96 34.53 83.07 34.83 83.07 C35.13 83.07 35.43 82.96 35.66 82.73 C35.89 82.5 36 82.2 36 81.9 C36 81.6 35.89 81.3 35.66 81.07 C31.39 76.8 29.04 71.12 29.04 65.09 C29.04 59.53 31.04 54.28 34.7 50.15 C34.7 50.15 34.7 50.15 34.7 50.14 C47.5 38.43 67.27 38.46 80.03 50.25 C80.03 50.25 80.03 50.25 80.03 50.25 C82.09 52.55 83.23 55.48 83.23 58.59 C83.23 61.94 81.93 65.09 79.56 67.45 C79.33 67.68 79.22 67.98 79.22 68.28 C79.22 68.61 79.35 68.94 79.62 69.17 C80.11 69.6 80.85 69.48 81.31 69.03 C86.21 64.23 94.09 64.26 98.94 69.12 C99.17 69.35 99.47 69.46 99.77 69.46 C100.07 69.46 100.38 69.35 100.6 69.12 C100.83 68.89 100.95 68.59 100.95 68.28 C100.95 67.98 100.83 67.68 100.6 67.45 C98.24 65.09 96.94 61.94 96.94 58.59 Z"/>
+  </defs></svg>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-in">
+      <a href="#" data-nav="home"><img class="logo" src="assets/img/logotipo-verde.png" alt="Quirón"></a>
+      <div class="links">
+        <a data-nav="home">Inicio</a>
+        <a data-nav="catalogo">Catálogo</a>
+        <a data-nav="catalogo" data-f="eter">Fuerzas</a>
+        <a data-nav="home" data-scroll="mito">Mito</a>
+        <a href="clases.html">Cosmovisión</a>
+      </div>
+      <div class="right">
+        <button class="cartbtn" id="openCart">Canasta <span class="cc" id="cc">0</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HOME ============ -->
+  <div class="view on" id="view-home">
+    <header class="hero grain">
+      <canvas id="stars"></canvas>
+      <div class="wrap">
+        <div class="hero-top">
+          <img class="hero-iso" src="assets/img/isotipo-blanco.png" alt="Quirón">
+          <span class="hero-tag">Tienda</span>
+        </div>
+        <div class="hero-mid">
+          <span class="eyebrow" style="color:var(--lavanda)">Quirón · el oficio del alma sobre la tierra</span>
+          <h1>Materia honesta para<br>acompañar tu tránsito<span class="st"> ✦</span></h1>
+          <p class="firma">De la herida al servicio. Todo lo que hacemos existe para acompañarlo.</p>
+          <div class="cta">
+            <button class="btn btn-lima" data-nav="catalogo">Explora nuestros productos</button>
+            <button class="btn btn-ghost-l" data-nav="home" data-scroll="mito">Conocer el mito</button>
+          </div>
+        </div>
+        <div class="hero-bot">
+          <div class="hero-meta">
+            <div><div class="k">Materia</div><div class="v">Honesta y natural</div></div>
+            <div><div class="k">Fuerzas</div><div class="v">Éter · Aire · Agua · Tierra · Fuego</div></div>
+            <div><div class="k">Comunidad</div><div class="v">La constelación</div></div>
+          </div>
+          <div class="hero-dom">quirón.com.mx</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- fuerzas -->
+    <section class="sec" style="background:var(--verde);color:#eef4f0" id="fuerzas">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow" style="color:#8fb3a6">Compra por fuerza</span>
+            <h2 style="margin-top:10px">Las cinco fuerzas</h2>
+          </div>
+          <p class="serif" style="color:#9fc0b4;max-width:30ch;font-size:1.05rem">Cuatro de la tierra y una quinta, celeste. Cada producto es el instrumento de una de ellas.</p>
+        </div>
+        <div class="forces" id="forcesStrip"></div>
+      </div>
+    </section>
+
+    <!-- destacados -->
+    <section class="sec" id="destacados">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><span class="eyebrow" style="color:var(--amatista)">Selección</span><h2 style="margin-top:10px">De la constelación</h2></div>
+          <button class="btn btn-verde" data-nav="catalogo">Ver todo</button>
+        </div>
+        <div class="grid" id="featGrid"></div>
+      </div>
+    </section>
+
+    <!-- mito -->
+    <section class="band-noche grain sec" id="mito">
+      <div class="wrap mito-split" style="position:relative;z-index:2">
+        <div class="mito-aside">
+          <span class="eyebrow" style="color:var(--lavanda)">El mito que nos funda</span>
+          <p class="mito-pull">La herida no fue su fin.<br>Fue su oficio.</p>
+          <button class="btn btn-lima" data-nav="catalogo">Comenzar</button>
+        </div>
+        <div class="mito-prose">
+          <p>En la mitología griega, Quirón era el más noble de los centauros: no una bestia, sino un maestro. Sabía de medicina, de plantas, de música y de las estrellas. A él le confiaban a los hijos de los dioses para que los formara, y de sus manos salió Asclepio, el padre de la medicina.</p>
+          <p>Pero Quirón cargaba una herida. Una flecha envenenada le atravesó y, siendo inmortal, no podía morir para escapar del dolor. Tampoco podía sanarse a sí mismo. Vivía con la herida abierta.</p>
+          <p>Y sin embargo —o precisamente por eso— se volvió el más grande de los sanadores. Porque quien ha conocido el dolor por dentro sabe acompañar el dolor ajeno con una hondura que el que nunca ha sufrido jamás alcanza. La herida no fue su fin. Fue su oficio.</p>
+          <p><strong>Quirón, la marca, es la constelación moderna de ese mito.</strong> Un lugar donde los heridos vienen a transformar aquello que los hirió en el saber que ofrecerán a otros. De la herida al servicio. Ese es el tránsito, y todo lo que hacemos existe para acompañarlo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- comunidad -->
+    <section class="sec" style="background:var(--papel-2)">
+      <div class="wrap" style="text-align:center;max-width:760px">
+        <img src="assets/img/isotipo-verde.png" alt="Quirón" style="width:54px;margin:0 auto 22px">
+
+        <p class="serif" style="font-size:clamp(1.3rem,2.4vw,1.85rem);color:var(--verde);line-height:1.42;max-width:30ch;margin:0 auto">«Nos dijeron que sanar era volver a ser quienes fuimos. Sanar es otra cosa: es convertirse en quien la herida nos enseñó a ser, a través de la significación que le damos.»</p>
+        <p class="muted" style="margin-top:18px">Una constelación de personas que eligieron darle sentido a su dolor.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ CATÁLOGO ============ -->
+  <div class="view" id="view-catalogo">
+    <section class="sec" style="padding-top:56px">
+      <div class="wrap">
+        <span class="eyebrow" style="color:var(--amatista)">Catálogo</span>
+        <h2 style="font-weight:300;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;margin:10px 0 6px">La constelación completa</h2>
+        <p class="muted" style="margin-bottom:32px">Filtra por la fuerza que buscas.</p>
+        <div class="filters" id="filters"></div>
+        <div class="grid" id="catGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ PRODUCTO ============ -->
+  <div class="view" id="view-producto">
+    <section class="sec" style="padding-top:32px">
+      <div class="wrap"><div class="pd" id="pdBox"></div></div>
+      <div class="wrap" style="margin-top:80px">
+        <h3 class="eyebrow" style="color:var(--piedra-500);margin-bottom:24px">También de esta fuerza</h3>
+        <div class="grid" id="relGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap">
+      <img class="flogo" src="assets/img/logotipo-blanco.png" alt="Quirón">
+      <div class="fcols">
+        <div>
+          <h4>El oficio del alma sobre la tierra</h4>
+          <p style="max-width:38ch;color:#9fc0b4;font-size:.92rem">Bienestar ritual, materia honesta. Sanamos en comunidad.</p>
+        </div>
+        <div><h4>Tienda</h4><ul><li><a data-nav="catalogo">Catálogo</a></li><li><a data-nav="catalogo" data-f="eter">Éter</a></li><li><a data-nav="catalogo" data-f="agua">Agua</a></li></ul></div>
+        <div><h4>Casa</h4><ul><li><a data-nav="home" data-scroll="mito">El mito</a></li><li><a href="#">Comunidad</a></li><li><a href="#">quirón.com.mx</a></li></ul></div>
+      </div>
+      <div class="fbot"><span>© Quirón · marca registrada</span><span>Ritual y tradición · no sustituye atención médica</span></div>
+    </div>
+  </footer>
+
+  <!-- carrito -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Carrito">
+    <div class="drawer-h"><h3>Tu canasta</h3><button class="drawer-x" id="closeCart">✕</button></div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-f">
+      <div class="sub"><span>Subtotal</span><span id="cartSub">$0</span></div>
+      <button class="btn btn-verde" disabled>Finalizar (próximamente)</button>
+      <p class="note">Prototipo de diseño · sin pago real</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"><span>✦</span><span id="toastMsg">Añadido a tu canasta</span></div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
